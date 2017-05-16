@@ -94,11 +94,13 @@ int main() {
 			n_y = N_y_init(gen);
 			n_theta = N_theta_init(gen);
 			pf.init(gt[i].x + n_x, gt[i].y + n_y, gt[i].theta + n_theta, sigma_pos);
+  			cout << "init" << endl;
 		}
 		else {
 			// Predict the vehicle's next state (noiseless).
 			pf.prediction(delta_t, sigma_pos, position_meas[i-1].velocity, position_meas[i-1].yawrate);
 		}
+    		
 		// simulate the addition of noise to noiseless observation data.
 		vector<LandmarkObs> noisy_observations;
 		LandmarkObs obs;
